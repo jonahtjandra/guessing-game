@@ -64,7 +64,6 @@ useEffect(() => {
                         {group2.map(member=>{
                             return(<div class = {classes.textBox}>{member.name}</div>)
                         })}
-                        
                         </div>
                     </div>
                 </div>

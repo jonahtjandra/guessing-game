@@ -74,6 +74,16 @@ const emitPressLetter = (group,index, letter) => {
                 </div>)
         })}
         </div>
+        <form className='form'>
+            <div className='form-control'>
+                <input 
+                type='text' 
+                placeholder='Guess the full word!'
+                value = {answer}
+                onChange = {(e) => setAnswer(e.target.value)} />
+            </div>
+            <input className = 'btn' type='submit' value='Submit Answer'/>
+        </form>
         <div class="grid-container">
         <div class="grid-item"onClick= {()=>{emitPressLetter(userGroup,currentIdx,'a')}}><Key chars='a'/></div>
         <div class="grid-item"onClick= {()=>{emitPressLetter(userGroup,currentIdx,'b')}}><Key chars='b'/></div>
