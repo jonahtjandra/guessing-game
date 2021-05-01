@@ -7,7 +7,7 @@ const Landing = () => {
 
     return (
         <>
-        
+        <img className = "logo" src = {logo}></img>
         <form className='landing-container'>
             <div className='form-control'>
                 <input 
