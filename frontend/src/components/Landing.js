@@ -1,10 +1,14 @@
 import React from 'react'
 import {useState} from 'react'
 import logo from './logo.png';
+import {useHistory} from 'react-router';
 
 const Landing = () => {
     const [name, setName] = useState('')
-
+    const history = useHistory();
+    const submitAndMovePage = (roomnumber,alias)=>{
+        history.push(`/wait/${roomnumber}/${alias}`);
+    }
     return (
         <>
         <img className = "logo" src = {logo}></img>
