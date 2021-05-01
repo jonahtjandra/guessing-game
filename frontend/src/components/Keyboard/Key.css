@@ -1,0 +1,9 @@
+.key {
+    background-color: whitesmoke;
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: auto;
+    width: 50px;
+    height: 40px;
+}
+
