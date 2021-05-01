@@ -2,8 +2,10 @@ import React from 'react'
 import Key from '../Keyboard/Key.js'
 import './Game.css'
 import AnswerBox from '../AnswerBox/AnswerBox.js'
+import {useState} from 'react'
 
 const Game = () => {
+    const [answer, setAnswer] = useState('')
     return (
         <>
         <div className="toolbar">
@@ -20,6 +22,16 @@ const Game = () => {
         <AnswerBox chars = 'O'/>
         <AnswerBox chars = '!'/>
         </div>
+        <form className='form'>
+            <div className='form-control'>
+                <input 
+                type='text' 
+                placeholder='Guess the full word!'
+                value = {answer}
+                onChange = {(e) => setAnswer(e.target.value)} />
+            </div>
+            <input className = 'btn' type='submit' value='Submit Answer'/>
+        </form>
         <div class="grid-container">
         <div class="grid-item"><Key chars='a'/></div>
         <div class="grid-item"><Key chars='b'/></div>
