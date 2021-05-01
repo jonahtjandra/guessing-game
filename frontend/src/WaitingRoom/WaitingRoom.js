@@ -41,6 +41,7 @@ useEffect(() => {
   });
 
   socket.on("gameHasStarted", () => {
+    socket.disconnect();
     history.push(`/split/${room_id}/${alias}`)
   });
 }, []);
