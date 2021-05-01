@@ -1,2 +1,8 @@
 import axios from 'axios';
-const baseUrl = 'backend url';
+
+export const set = (cart) => {
+    return {
+      type: SET_CART,
+      payload: cart
+    }
+  }
