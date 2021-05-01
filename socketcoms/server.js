@@ -3,7 +3,7 @@ import express from 'express';
 import * as socketio from 'socket.io';
 import cors from 'cors';
 
-import { addUser, removeUser, getUser, getUsersInRoom } from './controllers.js'
+import { addUser, removeUser, getUser, getUsersInRoom,modifyUserGroup } from './controllers.js'
 
 import router from './router.js'
 
@@ -67,6 +67,8 @@ io.on('connect', (socket) => {
     callback();
   });
 
+  //DONE UPTILL HERE
+  
   socket.on('splitGroupsPressed', (callback) => {
     const user = getUser(socket.id);
     if(user){
@@ -75,21 +77,27 @@ io.on('connect', (socket) => {
         group1:[], group2:[]
       }
       const allUsers = getUsersInRoom(user.room);
-      accum = 0;
-      for(i = 1;i<=allUsers.length;i++){
+      console.log(allUsers);
+      var accum = 0;
+      for(var i = 1;i<=allUsers.length;i++){
         accum*=10;
         accum+=i;
       }
-      randomizer = String(accum).shuffle();
-      for(i = 0;i<randomizer.length;i++){
+      var randomizer = String(accum).shuffle();
+      console.log(randomizer);
+      for(var i = 0;i<randomizer.length;i++){
         if(i < parseInt(randomizer.length)/2){
-          finishedgroups.group1[i] = allUsers[parseInt(randomizer[i])];
+          finishedgroups.group1[i] = allUsers[parseInt(randomizer[i])-1];
+          modifyUserGroup(allUsers[parseInt(randomizer[i])-1].id,1) 
+           
         }else{
-          finishedgroups.group2[(i-(parseInt(randomizer.length)/2))] = allUsers[parseInt(randomizer[i])];
+          finishedgroups.group2[(i-(parseInt(randomizer.length)/2))] = allUsers[parseInt(randomizer[i])-1];
+          modifyUserGroup(allUsers[parseInt(randomizer[i])-1].id,2) 
+          
         }
       }
        //Implement the word selection here
-
+      console.log(finishedgroups);
       io.to(user.room).emit('showSplittedGroups',finishedgroups);
     }
     callback();

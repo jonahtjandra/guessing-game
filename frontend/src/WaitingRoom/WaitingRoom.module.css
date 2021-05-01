@@ -6,7 +6,7 @@
 
 .container{
     display:grid;
-    grid-template-rows: 25% 10% 30% 15% 20%;
+    grid-template-rows: 25% 10% 5% 30% 15% 15%;
     height: calc(var(--vh, 1vh) * 97);
     width: calc(var(--vw, 1vw) * 98) ;
 }
@@ -21,7 +21,6 @@
 }
 .usersContainer{
     height:80%;
-    width:80vw;
     color:white;
     display:flex;
     flex-direction: row;
@@ -29,6 +28,14 @@
     justify-content:center;
 }
 
+.roomno{
+    height:100%;
+    color:white;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+}
 .loader{
     height:100%;
     width:100%;
@@ -60,7 +67,6 @@
     color: #fff;
     border: none;
     padding: 10px 20px;
-    margin: 5px;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
@@ -73,6 +79,8 @@
     height:5vh;
     align-self: start;
     justify-self: center;
+    align-items:center;
+    justify-content:center;
   }
   
   .btn:focus {
