@@ -158,6 +158,17 @@ io.on('connect', (socket) => {
     callback();
   });
 
+
+//Chatbox Component Actions
+socket.on('sentMessage', (group,message, callback) => {
+  const user = getUser(socket.id);
+  if(user){
+    //Broadcast the winning group to everybody and ask to move to the loser dare page
+    io.to(user.room).emit('broadcastMessagetoGroup',group);
+  }
+  callback();
+});
+
 });
 
 server.listen(process.env.PORT || 8000, () => console.log(`Server has started.`));
