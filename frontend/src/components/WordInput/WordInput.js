@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react';
+import './WordInput.css'
 
 const WordInput = () => {
     const [question, setQuestion] = useState('')

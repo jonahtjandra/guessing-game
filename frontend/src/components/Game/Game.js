@@ -10,6 +10,7 @@ import AnswerBox from '../AnswerBox/AnswerBox.js'
 let socket;
 
 const Game = () => {
+    const [answer, setAnswer] = useState();
     const history = useHistory();
     const dispatch = useDispatch();
     const group = useSelector(state => state.reducer.groups);
@@ -68,20 +69,11 @@ const emitPressLetter = (group,index, letter) => {
         <button className="quit-btn">Quit</button>
         </div>
         <div class="grid-container-answer">
-<<<<<<< HEAD
-        <AnswerBox chars = {answer}/>
-        <AnswerBox chars = 'E'/>
-        <AnswerBox chars = 'L'/>
-        <AnswerBox chars = 'L'/>
-        <AnswerBox chars = 'O'/>
-        <AnswerBox chars = '!'/>
-=======
         {word.map((letter,index)=>{
             return( <div className='box'>
             <label className='letter' onClick={()=>{setIdx(Number(index));console.log(currentIdx);}}>{letter}</label>
                 </div>)
         })}
->>>>>>> 80eae2f53aaa94754e3ef9e4b081e82ec773175d
         </div>
         <form className='form'>
             <div className='form-control'>
