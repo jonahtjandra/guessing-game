@@ -5,6 +5,7 @@ import {Route,Switch,useLocation} from 'react-router-dom';
 import Landing from './components/Landing/Landing.js';
 import Join from './components/JoinARoom/Join.js'
 import WaitingRoom from './WaitingRoom/WaitingRoom.js';
+import Split from './Split/Split.js';
 const App= (props)=>{
   useEffect(() => {
     console.log("Started");
@@ -19,8 +20,10 @@ const App= (props)=>{
      // transitions.map(({ item: location, props, key }) => (
           <Switch location={location} key={location.pathname}>
           <Route path="/wait/:room_id/:alias" exact component = {WaitingRoom}/>
+          <Route path="/split/:room_id/:alias" exact component = {Split}/>
           <Route exact path="/landing" exact component ={Landing} />
           <Route exact path="/join/:alias" exact component ={Join} />
+          
           </Switch>
       )
       //)

@@ -5,7 +5,7 @@ import './Join.css'
 import {useHistory, useParams} from 'react-router-dom';
 
 const Landing = () => {
-    const {name} = useParams()
+    const {alias} = useParams()
     const [roomID, setRoomID] = useState();
     const history = useHistory();
     const submitAndMovePage = (roomnumber,alias)=>{
@@ -27,7 +27,7 @@ const Landing = () => {
                 value = {roomID}
                 onChange = {(e) => setRoomID(e.target.value)} />
             </div>
-            <input onClick={()=>submitAndMovePage(roomID,String(name))} className = 'btn' type='submit' value='Join Room'/>
+            <input onClick={()=>submitAndMovePage(roomID,String(alias))} className = 'btn' type='submit' value='Join Room'/>
         </form>
         </>
     )
