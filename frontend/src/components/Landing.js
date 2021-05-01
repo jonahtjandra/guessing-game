@@ -20,7 +20,8 @@ const Landing = () => {
                 value = {name}
                 onChange = {(e) => setName(e.target.value)} />
             </div>
-            <input className = 'btn btn-block' type='submit' value='Create a new game'/><input className = 'btn btn-block' type='submit' value='Join a room'/>
+            <input 
+            onClick = {submitAndMovePage()}className = 'btn btn-block' type='submit' value='Create a new game'/><input className = 'btn btn-block' type='submit' value='Join a room'/>
         </form>
         </>
     )
