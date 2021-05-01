@@ -6,6 +6,7 @@ import {useState} from 'react'
 
 const Game = () => {
     const [answer, setAnswer] = useState('')
+    let word = ['g','u','e','s','s','s']
     return (
         <>
         <div className="toolbar">
@@ -15,7 +16,7 @@ const Game = () => {
         <button className="quit-btn">Quit</button>
         </div>
         <div class="grid-container-answer">
-        <AnswerBox chars = 'H'/>
+        <AnswerBox chars = {answer}/>
         <AnswerBox chars = 'E'/>
         <AnswerBox chars = 'L'/>
         <AnswerBox chars = 'L'/>
