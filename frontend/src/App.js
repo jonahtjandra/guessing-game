@@ -6,7 +6,6 @@ import Homepage from './Homepage/Homepage.js';
 import Landing from './components/Landing/Landing.js';
 import Join from './components/JoinARoom/Join.js'
 import WaitingRoom from './WaitingRoom/WaitingRoom.js';
-import Landing from './components/Landing.js';
 const App= (props)=>{
   useEffect(() => {
     console.log("Started");
