@@ -1,1 +1,1 @@
-export const SET_MENU = 'SET_MENU';
+export const SET_GROUP_MEMBER = 'SET_GROUP_MEMBER';
