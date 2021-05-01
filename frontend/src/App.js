@@ -7,6 +7,7 @@ import Join from './components/JoinARoom/Join.js'
 import WaitingRoom from './WaitingRoom/WaitingRoom.js';
 import Game from './components/Game/Game.js'
 import Split from './Split/Split.js';
+import WordInput from './components/WordInput/WordInput.js'
 const App= (props)=>{
   useEffect(() => {
     console.log("Started");
@@ -25,6 +26,7 @@ const App= (props)=>{
           <Route exact path="/landing" exact component ={Landing} />
           <Route exact path="/join/:alias" exact component ={Join} />
           <Route exact path="/game" exact component ={Game} />
+          <Route exact path="/input" exact component ={WordInput} />
           
           </Switch>
       )

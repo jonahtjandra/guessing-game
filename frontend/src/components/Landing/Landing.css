@@ -6,9 +6,10 @@ html, body {
 }
 .landing-container {
     padding-top: 25%;
-    padding-left: 32%;
+    padding-left: 0%;
     height:40vw;
     width:40vw;
+    left:32%;
 }
 .landing-container input {
     width: 100%;
