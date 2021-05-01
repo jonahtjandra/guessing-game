@@ -2,7 +2,6 @@
 import React from "react";
 import {useEffect} from 'react';
 import {Route,Switch,useLocation} from 'react-router-dom';
-import Homepage from './Homepage/Homepage.js';
 import Landing from './components/Landing/Landing.js';
 import Join from './components/JoinARoom/Join.js'
 import WaitingRoom from './WaitingRoom/WaitingRoom.js';

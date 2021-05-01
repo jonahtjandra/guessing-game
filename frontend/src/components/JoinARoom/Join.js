@@ -27,7 +27,7 @@ const Landing = () => {
                 value = {roomID}
                 onChange = {(e) => setRoomID(e.target.value)} />
             </div>
-            <input onClick={()=>submitAndMovePage(roomID,{name})} className = 'btn' type='submit' value='Join Room'/>
+            <input onClick={()=>submitAndMovePage(roomID,String(name))} className = 'btn' type='submit' value='Join Room'/>
         </form>
         </>
     )
