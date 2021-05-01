@@ -131,7 +131,8 @@ io.on('connect', (socket) => {
     }
     callback();
   });
-  socket.on('userTypeWordBox', (group, wordBoxIndex, letter, callback) => {
+
+  socket.on('userTypeWordBox', ({group, wordBoxIndex, letter}, callback) => {
     const user = getUser(socket.id);
     if(user){
       io.to(user.room).emit('changeGroupWordBox',group,wordBoxIndex,letter);

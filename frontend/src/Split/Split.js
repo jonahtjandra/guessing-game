@@ -53,14 +53,16 @@ useEffect(() => {
                     <div class = {classes.teamdiv}>
                         <div class = {classes.title}>Team 1</div>
                         <div class = {classes.memberContainer}>
-                        {group1.name}
+                        {group1.map(member=>{
+                            return(<div class = {classes.textBox}>{member.name}</div>)
+                        })}
                         </div>
                     </div>
                     <div class = {classes.teamdiv}>
                         <div class = {classes.title}>Team 2</div>
                         <div class = {classes.memberContainer}>
                         {group2.map(member=>{
-                            <div class = {classes.textBox}>{member.name}</div>
+                            return(<div class = {classes.textBox}>{member.name}</div>)
                         })}
                         
                         </div>
