@@ -10,10 +10,6 @@ import AnswerBox from '../AnswerBox/AnswerBox.js'
 let socket;
 
 const Game = () => {
-<<<<<<< HEAD
-    const [answer, setAnswer] = useState('')
-    let word = ['g','u','e','s','s','s']
-=======
     const history = useHistory();
     const dispatch = useDispatch();
     const group = useSelector(state => state.reducer.groups);
@@ -63,7 +59,6 @@ const emitPressLetter = (group,index, letter) => {
 
   });
 };
->>>>>>> 80eae2f53aaa94754e3ef9e4b081e82ec773175d
     return (
         <div class = "thecontainer">
         <div className="toolbar">

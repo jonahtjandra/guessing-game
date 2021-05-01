@@ -25,12 +25,9 @@ const App= (props)=>{
           <Route path="/split/:room_id/:alias" exact component = {Split}/>
           <Route exact path="/landing" exact component ={Landing} />
           <Route exact path="/join/:alias" exact component ={Join} />
-<<<<<<< HEAD
           <Route exact path="/game" exact component ={Game} />
           <Route exact path="/input" exact component ={WordInput} />
-=======
           <Route exact path="/game/:room_id/:alias" exact component ={Game} />
->>>>>>> 80eae2f53aaa94754e3ef9e4b081e82ec773175d
           
           </Switch>
       )
