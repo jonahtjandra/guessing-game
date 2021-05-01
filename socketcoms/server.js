@@ -53,7 +53,7 @@ io.on('connect', (socket) => {
     const usersinroom = getUsersInRoom(user.room);
     console.log(usersinroom);
 
-    io.to(user.room).emit('newUserJoin',user);//Object with {id, name, room and group} frontend needs to update and add that new user
+    io.to(user.room).emit('newUserJoin',usersinroom);//Object with {id, name, room and group} frontend needs to update and add that new user
 
     callback();
   });

@@ -7,7 +7,7 @@ const Landing = () => {
     const [name, setName] = useState('')
     const history = useHistory();
     const submitAndMovePage = (roomnumber,alias)=>{
-        history.push(`/wait/${roomnumber}/${alias}`);
+        history.push(`/landing2/${alias}`);
     }
     return (
         <>
@@ -21,7 +21,7 @@ const Landing = () => {
                 onChange = {(e) => setName(e.target.value)} />
             </div>
             <input 
-            onClick = {submitAndMovePage()}className = 'btn btn-block' type='submit' value='Create a new game'/><input className = 'btn btn-block' type='submit' value='Join a room'/>
+            onClick = {()=>{submitAndMovePage()}}className = 'btn btn-block' type='submit' value='Create a new game'/><input className = 'btn btn-block' type='submit' value='Join a room'/>
         </form>
         </>
     )

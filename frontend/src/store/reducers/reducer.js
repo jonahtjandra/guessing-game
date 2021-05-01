@@ -1,8 +1,8 @@
 const initialState = {
-  groups = {
+  groups :{
     group1:[],group2:[]
   },
-  gamewords = {
+  gamewords : {
     group1:"",group2:""
   }
 }
