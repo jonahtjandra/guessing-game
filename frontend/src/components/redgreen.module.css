@@ -1,0 +1,14 @@
+.Green{
+    height:100vh;
+    width:100vw;
+    background-color:green;
+    color:coral;
+    font-size:1.5rem;
+}
+.Red{
+    height:100vh;
+    width:100vw;
+    background-color:Red;
+    color: black;
+    font-size:1.5rem;
+}

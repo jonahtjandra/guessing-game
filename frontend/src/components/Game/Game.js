@@ -13,12 +13,14 @@ const Game = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const group = useSelector(state => state.reducer.groups);
+    const correctAnswer = useSelector(state=>state.reducer.correctAnswer);
+    const [answer, setAnswer] = useState();
   const {room_id, alias} = useParams();
-  const [word, setWord] = useState(String("Hey").split(''));
+  const [word, setWord] = useState(String("Guess!").split(''));
   const [users,setUsers] =useState([]);
   const [userGroup, setUserGroup] = useState();
   const [currentIdx, setIdx] = useState(0);
-  const ENDPOINT = "http://localhost:8000/";
+  const ENDPOINT = "http://18.139.223.6:8000/";
   useEffect(() => {
     const name = alias;
     console.log(name);
@@ -47,6 +49,14 @@ useEffect(() => {
             ids[wordBoxIndex] = letter;               //new value
             setWord(ids);   
         }
+      })
+
+      socket.on("passToGreen", (group) => {
+             history.push('/green');
+      })
+
+      socket.on("passToRed", (group) => {
+             history.push('/red');
       })
 },[])
 
@@ -80,9 +90,30 @@ const emitPressLetter = (group,index, letter) => {
                 type='text' 
                 placeholder='Guess the full word!'
                 value = {answer}
-                onChange = {(e) => setAnswer(e.target.value)} />
+                onChange = {(e) => {
+                    setAnswer(e.target.value.toUpperCase());
+                    var temp = String(e.target.value).toUpperCase().split('');
+                    setWord(temp);
+                }} />
             </div>
-            <input className = 'btn' type='submit' value='Submit Answer'/>
+            <input className = 'btn' onClick = {(e)=>{
+                e.preventDefault();
+                console.log(correctAnswer);
+                console.log(answer);
+                if(answer === correctAnswer){
+                    socket.emit("correctAnswerGuessed", (userGroup,error) => {
+                        if (error) {
+                            alert(error);
+                        }
+                  
+                    });
+                }else{ socket.emit("wrongAnswerGuessed", (userGroup,error) => {
+                    if (error) {
+                        alert(error);
+                    }
+              
+                }); }
+            }}type='submit' value='Submit Answer'/>
         </form>
         <div class="grid-container">
         <div class="grid-item"onClick= {()=>{emitPressLetter(userGroup,currentIdx,'a')}}><Key chars='a'/></div>

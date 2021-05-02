@@ -13,7 +13,7 @@ export default function WaitingRoom() {
   const history = useHistory();
   const {room_id, alias} = useParams();
   const [users,setUsers] =useState([]);
-  const ENDPOINT = "http://localhost:8000/";
+  const ENDPOINT = "http://18.139.223.6:8000/";
   useEffect(() => {
     const name = alias;
     console.log(name);

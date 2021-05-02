@@ -15,7 +15,8 @@ function Split() {
   const {room_id, alias} = useParams();
   const [group1,setg1] =useState([]);
   const [group2,setg2] =useState([]);
-  const ENDPOINT = "http://localhost:8000/";
+  const [clickNo, setClickNo] = useState(1);
+  const ENDPOINT = "http://18.139.223.6:8000/";
   useEffect(() => {
     const name = alias;
     console.log(name);
@@ -30,12 +31,21 @@ function Split() {
 }, [ENDPOINT]);
 
 const emitSplitPressed = () => {
+    setClickNo(2);
   socket.emit("splitGroupsPressed", (error) => {
       if (error) {
           alert(error);
       }
   });
 };
+const emitmove = () => {
+  socket.emit("wantToMove", (error) => {
+      if (error) {
+          alert(error);
+      }
+  });
+};
+
 
 useEffect(() => {
   socket.on("showSplittedGroups", (groups) => {
@@ -44,6 +54,10 @@ useEffect(() => {
     setg2(groups.group2);
     console.log(group1);
     console.log(group2);
+  });
+
+  socket.on("move", () => {
+    history.push(`/game/${room_id}/${alias}`)
   });
 }, []);
     return (
@@ -67,7 +81,7 @@ useEffect(() => {
                         </div>
                     </div>
                 </div>
-                <div class = {classes.btn} onClick = {()=>{emitSplitPressed()}}>Button</div>
+                <div class = {classes.btn} onClick = {()=>{(clickNo == 1)?emitSplitPressed():emitmove()}}>Button</div>
             </div>
             <div class = {classes.line}></div>
             <div class = {classes.right}>

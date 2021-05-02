@@ -86,12 +86,12 @@ io.on('connect', (socket) => {
       var randomizer = String(accum).shuffle();
       console.log(randomizer);
       for(var i = 0;i<randomizer.length;i++){
-        if(i < parseInt(randomizer.length)/2){
+        if(i < parseInt(randomizer.length/2)){
           finishedgroups.group1[i] = allUsers[parseInt(randomizer[i])-1];
           modifyUserGroup(allUsers[parseInt(randomizer[i])-1].id,1) 
            
         }else{
-          finishedgroups.group2[(i-(parseInt(randomizer.length)/2))] = allUsers[parseInt(randomizer[i])-1];
+          finishedgroups.group2[(i-(parseInt(randomizer.length/2)))] = allUsers[parseInt(randomizer[i])-1];
           modifyUserGroup(allUsers[parseInt(randomizer[i])-1].id,2) 
           
         }
@@ -153,18 +153,24 @@ io.on('connect', (socket) => {
     const user = getUser(socket.id);
     if(user){
       //Broadcast the winning group to everybody and ask to move to the loser dare page
-      io.to(user.room).emit('passToDare',group);
+      io.to(user.room).emit('passToGreen');
     }
-    callback();
+  });
+
+  socket.on('wantToMove', (callback) => {
+    const user = getUser(socket.id);
+    if(user){
+      //Broadcast the winning group to everybody and ask to move to the loser dare page
+      io.to(user.room).emit('move');
+    }
   });
 
   socket.on('wrongAnswerGuessed', (group, callback) => {
     const user = getUser(socket.id);
     if(user){
       //Broadcast the winning group to everybody and ask to move to the loser dare page
-      io.to(user.room).emit('passToOtherGroup',group);
+      io.to(user.room).emit('passToRed');
     }
-    callback();
   });
 
 
