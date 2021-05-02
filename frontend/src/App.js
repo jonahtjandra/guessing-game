@@ -9,6 +9,7 @@ import Game from './components/Game/Game.js'
 import Split from './Split/Split.js';
 import Red from "./components/Red.js";
 import Green from "./components/Green.js";
+import WordInput from './components/WordInput/WordInput.js'
 const App= (props)=>{
   useEffect(() => {
     console.log("Started");
@@ -26,6 +27,8 @@ const App= (props)=>{
           <Route path="/split/:room_id/:alias" exact component = {Split}/>
           <Route exact path="/landing" exact component ={Landing} />
           <Route exact path="/join/:alias" exact component ={Join} />
+          <Route exact path="/game" exact component ={Game} />
+          <Route exact path="/input" exact component ={WordInput} />
           <Route exact path="/game/:room_id/:alias" exact component ={Game} />
           <Route path = '/red' component = {Red}/>
           <Route path = '/green' component = {Green}/>

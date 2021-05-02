@@ -1,0 +1,14 @@
+.form {
+    height:100%;
+    width:100%;
+}
+
+.form-control {
+    margin-left: 33%;
+    padding-top: 27%;
+    width: 500px;
+}
+
+.btn {
+    margin-left: 50%;
+}
