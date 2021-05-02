@@ -10,7 +10,6 @@ import AnswerBox from '../AnswerBox/AnswerBox.js'
 let socket;
 
 const Game = () => {
-    const [answer, setAnswer] = useState();
     const history = useHistory();
     const dispatch = useDispatch();
     const group = useSelector(state => state.reducer.groups);
